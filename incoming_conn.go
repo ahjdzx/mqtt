@@ -166,8 +166,8 @@ func (c *incomingConn) reader() {
 		case *proto.Connect:
 			rc := proto.RetCodeAccepted
 
-			if m.ProtocolName != "MQIsdp" ||
-				m.ProtocolVersion != 3 {
+			if (m.ProtocolName != "MQIsdp" && m.ProtocolName != "MQTT") ||
+				(m.ProtocolVersion != 3 && m.ProtocolVersion != 4) {
 				log.Print("reader: reject connection from ", m.ProtocolName, " version ", m.ProtocolVersion)
 				rc = proto.RetCodeUnacceptableProtocolVersion
 			}

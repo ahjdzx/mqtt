@@ -5,7 +5,7 @@ import (
 	"log"
 	"net"
 
-	"github.com/jeffallen/mqtt"
+	"github.com/ahjdzx/mqtt"
 )
 
 var addr = flag.String("addr", "localhost:1883", "listen address of broker")
